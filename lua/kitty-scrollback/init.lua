@@ -5,8 +5,12 @@ local M = {}
 M.configs = {}
 
 ---Create commands for generating kitty-scrollback.nvim kitten configs
+---@param configs? table<string, KsbOpts|fun(KsbKittyData):KsbOpts>
 M.setup = function(configs)
-  if configs then
+  if configs ~= nil then
+    if type(configs) ~= 'table' then
+      error('kitty-scrollback.setup(): expected table for configs, got ' .. type(configs), 2)
+    end
     M.configs = configs
   end
   ---@brief [[
