@@ -9,7 +9,7 @@ M.configs = {}
 M.setup = function(configs)
   if configs ~= nil then
     if type(configs) ~= 'table' then
-      error('kitty-scrollback.setup(): expected table for configs, got ' .. type(configs), 2)
+      error('kitty-scrollback.setup: expected table for configs, got ' .. type(configs), 2)
     end
     M.configs = configs
   end
